@@ -1,0 +1,29 @@
+{
+  "name" : "Hackernews Companion",
+  "version" : "1.0",
+  "manifest_version" : 2,
+  "description" : "A companion based on Reddit Companion.",
+  "background" : {
+    "page" : "background.html"
+  },
+  "page_action" : {
+    "default_icon" : {
+      "19" : "icon.png"
+    },
+    "default_title" : "There's a 'Kevin' on the page!"
+  },
+  "content_scripts" : [
+    {
+      "matches" : [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js" : ["contentscript.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "permissions": [
+    "http://api.flickr.com/"
+  ]
+}
